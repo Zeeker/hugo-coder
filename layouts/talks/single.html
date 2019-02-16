@@ -1,0 +1,55 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">{{ .Title }}</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+                {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}
+              </time>
+            </span>
+            <span class="location">
+              <i class="fas fa-map-marker"></i>
+              {{ .Page.Params.Location }}
+            </span>
+            {{ if .Page.Params.EventLink }}
+            <span class="event-link">
+              <i class="fas fa-link"></i>
+              <a href="{{ .Page.Params.EventLink }}">{{ .Page.Params.EventName }}</a>
+            </span>
+            {{ end }}
+          </div>
+          {{ with .Page.Params.Categories }}{{ partial "taxonomy/categories" . }}{{ end }}
+          {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags" . }}{{ end }}
+        </div>
+      </header>
+
+      <div>
+        {{ .Content }}
+      </div>
+
+      {{ with .Page.Params.YouTube }}
+      <div>
+        <h3>Recording</h3>
+        <div class="embed-container">
+          <iframe src="{{ . }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      {{ end }}
+
+      <footer>
+        {{ partial "posts/disqus" . }}
+      </footer>
+    </article>
+
+    {{ partial "posts/math" . }}
+  </section>
+{{ end }}
