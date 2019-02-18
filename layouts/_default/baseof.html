@@ -2,6 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}">
 
   <head>
+    {{ partial "head_start.html" . }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -62,6 +63,8 @@
     {{ end }}
 
     {{ .Hugo.Generator }}
+
+    {{ partial "head_end.html" . }}
   </head>
 
   <body class="{{ if .Site.Params.rtl }}rtl{{ end }}">
