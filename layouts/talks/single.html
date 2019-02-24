@@ -36,15 +36,6 @@
         {{ .Content }}
       </div>
 
-      {{ with .Page.Params.YouTube }}
-      <div>
-        <h3>Recording</h3>
-        <div class="embed-container">
-          <iframe src="{{ . }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </div>
-      {{ end }}
-
       <footer>
         {{ partial "posts/disqus" . }}
       </footer>

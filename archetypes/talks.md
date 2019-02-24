@@ -6,7 +6,12 @@ slug = ""
 location = ""
 eventName = ""
 eventLink = ""
-youtube = ""
 tags = []
 categories = []
 +++
+
+<!--
+### Recording
+
+{{< youtube ID >}}
+-->
