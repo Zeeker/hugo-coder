@@ -1,7 +1,11 @@
-<section class="container page">
+<section class="container page {{ with .Params.cssClasses }} {{ range . }} {{ . }} {{ end }} {{ end }}">
   <article>
     <header>
-      <h1>{{ .Title }}</h1>
+      {{ if .Params.smallerHeader }}
+        <h2>{{ .Title }}</h2>
+      {{ else }}
+        <h1>{{ .Title }}</h1>
+      {{ end }}
     </header>
 
     {{ .Content }}
