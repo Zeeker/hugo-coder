@@ -7,3 +7,19 @@
     color: $link-color;
   }
 }
+
+.legal {
+  margin-bottom: .5rem;
+
+  *::before {
+    content: "·";
+    margin: 0;
+    margin-left: .1em;
+    margin-right: .3em;
+  }
+
+  :first-child::before {
+    content: "";
+    margin: 0;
+  }
+}
