@@ -29,6 +29,21 @@
           </div>
           {{ with .Page.Params.Categories }}{{ partial "taxonomy/categories" . }}{{ end }}
           {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags" . }}{{ end }}
+
+          <!-- Link to slides -->
+          {{ if .Page.Params.Slides }}
+          <div class="slide-links">
+            <i class="fas fa-link"></i>
+            <b>Slides:</b>
+            {{- range $index, $el := .Page.Params.Slides -}}
+              {{- if gt $index 0 }}
+                <span class="separator">•</span>
+              {{- end }}
+              {{ . | markdownify }}
+              <!-- <a href="{{ ( print "tags/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a> -->
+            {{- end -}}
+          </div>
+          {{ end }}
         </div>
       </header>
 
